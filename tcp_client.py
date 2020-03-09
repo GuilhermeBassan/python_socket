@@ -1,8 +1,8 @@
 import socket
 import sys
 
-HOST = '169.254.1.1'
-#HOST = '10.72.10.84'
+#HOST = '169.254.1.1'
+HOST = 'localhost'
 PORT = 2101
 
 try:
@@ -42,3 +42,4 @@ while True:
 	print(resp)
 
 tcp.close()
+
