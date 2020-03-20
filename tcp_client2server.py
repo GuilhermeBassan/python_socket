@@ -11,23 +11,23 @@ SV_PORT = 5000
 sv_addr = ((SV_HOST, SV_PORT))
 
 try:
-	cl_socket = socket.socket(socket.AF_INET,
-			   	  socket.SOCK_STREAM)
-	cl_socket.connect(cl_addr)
+    cl_socket = socket.socket(socket.AF_INET,
+                              socket.SOCK_STREAM)
+    cl_socket.connect(cl_addr)
 except socket.error:
-	print("Falha na criação do socket cliente")
-	sys.exit()
+    print("Falha na criação do socket cliente")
+    sys.exit()
 
 print("Socket cliente estabelecido")
 
 try:
-	sv_socket = socket.socket(socket.AF_INET,
-				  socket.SOCK_STREAM)
-	sv_socket.bind(sv_addr)
-	sv_socket.listen(1)
+    sv_socket = socket.socket(socket.AF_INET,
+                              socket.SOCK_STREAM)
+    sv_socket.bind(sv_addr)
+    sv_socket.listen(1)
 except socket.error:
-	print("Falha na criação do socket servidor")
-	sys.exit()
+    print("Falha na criação do socket servidor")
+    sys.exit()
 
 print("Socket servidor estabelecido")
 
@@ -37,11 +37,11 @@ print("Cliente conectado: {}".format(client))
 #msg = 'Hello World!'.encode()
 
 while True:
-	packet = (cl_socket.recv(4096))
-	print(packet)
+    packet = (cl_socket.recv(4096))
+    print(packet)
 
-	try:
-		conn.send(packet)
-	except socket.error:
-		print("Erro no envio")
-		conn.close()
+    try:
+        conn.send(packet)
+    except socket.error:
+        print("Erro no envio")
+        conn.close()
